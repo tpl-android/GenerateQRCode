@@ -20,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        try {
+            Bitmap bitmap = encodeAsBitmap("Truong Phuoc Loc, QRCode");
+            imageView.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+    }
+
     Bitmap encodeAsBitmap(String str) throws WriterException {
         BitMatrix result;
         try {
